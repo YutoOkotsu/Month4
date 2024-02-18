@@ -4,3 +4,4 @@ static
 main
 .venv
 .env
+.idea
