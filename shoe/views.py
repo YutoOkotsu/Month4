@@ -9,6 +9,18 @@ def delete_shoe_view(request, id):
     return HttpResponse('<h1>Удален из списка кроссовок</h1 <a href="/">Все кроссовки</a>')
 
 
+def update_shoe_view(request, id):
+    shoe_id = get_object_or_404(models.Shoe, id=id)
+    if request.method == 'POST':
+        form = forms.ShoesForm(request.POST, instance=shoe_id)
+        if form.is_valid():
+            form.save()
+            return HttpResponse('<h1>Успешно поменяли данные</h1><a href="/">Все кроссовки</a>')
+    else:
+        form = forms.ShoesForm(instance=shoe_id)
+    return render(request, 'shoe/update.html', {'form': form, 'shoe_id': shoe_id})
+
+
 def creat_shoe_view(request):
     if request.method == 'POST':
         form = forms.ShoesForm(request.POST, request.FILES)
