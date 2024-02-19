@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button><a href="/shoe_detail/{{shoe_id.id}}/delete/">Удалить</a></button>
+<button><a href="#">Изменить</a></button>
+<h1>Детальная информация: {{shoe_id.name}}</h1>
+<p><em>{{shoe_id.description}}</em></p>
+<img src="{{shoe_id.image_1.url}}" alt="404" width="400" height="500">
+<img src="{{shoe_id.image_2.url}}" alt="404" width="400" height="500">
+<img src="{{shoe_id.image_3.url}}" alt="404" width="400" height="500">
+<p>Бренд: {{shoe_id.brand}}</p>
+<p>Модель: {{shoe_id.model}}</p>
+<p>Категория: {{shoe_id.category}}</p>
+<p>Цвет: {{shoe_id.color}}</p>
+<p>Размер: {{shoe_id.size}}</p>
+<p>Цена: {{shoe_id.price}}</p>
+<p>Скидка: {{shoe_id.discount}}</p>
+<p>Добавлена: {{shoe_id.created_at}}</p>
+<p>Улучшено: {{shoe_id.updated_at}}</p>
+</body>
+</html>

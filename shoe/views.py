@@ -1,5 +1,23 @@
 from django.shortcuts import render, get_object_or_404
-from . import models
+from . import models, forms
+from django.http import HttpResponse
+
+
+def delete_shoe_view(request, id):
+    shoe_id = get_object_or_404(models.Shoe, id=id)
+    shoe_id.delete()
+    return HttpResponse('<h1>Удален из списка кроссовок</h1 <a href="/">Все кроссовки</a>')
+
+
+def creat_shoe_view(request):
+    if request.method == 'POST':
+        form = forms.ShoesForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return HttpResponse('<h1>Добавлен в список кроссовок</h1 <a href="/">Все кроссовки</a>')
+    else:
+        form = forms.ShoesForm()
+    return render(request, 'shoe/shoe_form.html', {'form': form})
 
 
 def shoe_view(request):
