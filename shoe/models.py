@@ -27,3 +27,13 @@ class Shoe(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.price}"
+
+
+class CommentShoe(models.Model):
+    shoe_comment = models.ForeignKey(Shoe, on_delete=models.CASCADE, null=True, blank=True,
+                                    related_name="comments")
+    text = models.TextField(verbose_name="Напиши свое мнение о товаре")
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.shoe_comment} - {self.text}"

@@ -21,5 +21,12 @@
 <p>Скидка: {{shoe_id.discount}}</p>
 <p>Добавлена: {{shoe_id.created_at}}</p>
 <p>Улучшено: {{shoe_id.updated_at}}</p>
+<div class="create_comment">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Add comment">
+        </form>
+    </div>
 </body>
 </html>
