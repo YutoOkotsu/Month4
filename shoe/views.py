@@ -44,12 +44,6 @@ def shoe_view(request):
 
 
 def shoe_shop_detail_view(request, id):
-    shoes_id = get_object_or_404(models.Shoe, id=id)
-    return render(request, 'shoe/shoe_detail.html',
-                  context={'shoe_id': shoes_id})
-
-
-def shoe_shop_detail_view(request, id):
     if request.method == 'GET':
         shoes_id = get_object_or_404(models.Shoe, id=id)
         context = {
@@ -60,7 +54,7 @@ def shoe_shop_detail_view(request, id):
     elif request.method == 'POST':
         form = CommentCreateForm(request.POST)
         if form.is_valid():
-            models.CommentShoe.objects.create(id=id, **form.cleaned_data)
+            models.CommentShoe.objects.create(**form.cleaned_data)
             return redirect(f'/shoe_detail/{id}/')
         context = {
             'form': form,

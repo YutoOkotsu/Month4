@@ -21,6 +21,15 @@
 <p>Скидка: {{shoe_id.discount}}</p>
 <p>Добавлена: {{shoe_id.created_at}}</p>
 <p>Улучшено: {{shoe_id.updated_at}}</p>
+<ul>
+  <h3>Отзывы</h3>
+  {% for comment in shoe_id.comments.all %}
+    <li>
+      <hr>
+      <h4>{{ comment.text }}</h4>
+    </li>
+  {% endfor %}
+</ul>
 <div class="create_comment">
         <form method="post">
             {% csrf_token %}

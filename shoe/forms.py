@@ -11,4 +11,4 @@ class ShoesForm(forms.ModelForm):
 class CommentCreateForm(forms.ModelForm):
     class Meta:
         model = models.CommentShoe
-        fields = ('text',)
+        fields = ('text', 'shoe_comment')
