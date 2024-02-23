@@ -31,7 +31,7 @@ def creat_shoes_view(request):
             return HttpResponse('<h1>Добавлен в список кроссовок</h1 <a href="/shoe_list/">Все кроссовки</a>')
     else:
         form = forms.ShoesForm()
-    return render(request, 'shoes/creat_shoes.html', {'form': form})
+    return render(request, 'shoe/creat_shoes.html', {'form': form})
 
 
 def shoe_view(request):

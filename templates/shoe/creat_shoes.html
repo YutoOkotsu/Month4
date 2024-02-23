@@ -1,15 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<form action="creat_shoes/" method="post" enctype="multipart/form-data">
+{% load static %}
+{% include 'shoe/header.html' %}
+
+<link rel="stylesheet" href="{% static 'shoes/creat_shoes.css' %}">
+<form class="air"  method="post" enctype="multipart/form-data">
+<div class="form-inner">
+<div class="stripes-block"></div>
+<div class="form-row">
+<label for="name">Добавить кроссовок</label>
+<input type="text" id="name" required>
+</div>
+<div class="form-row">
+<label for="address">Адрес</label>
+<textarea rows="3" id="address" required></textarea>
+</div>
+<div class="form-row-icon">
+<i class="fa fa-tty"></i>
+<input type="text" id="phone" required>
+</div>
+<div class="form-row-icon">
+<i class="fa fa-envelope-o"></i>
+<input type="email" id="email" required>
+</div>
+<div class="form-row-icon">
+<i class="fa fa-paper-plane-o"></i>
     {% csrf_token %}
     {{form.as_p}}
-    <button type="submit">Добавить</button>
-    <button type="reset">Удалить</button>
+</div>
+</div>
 </form>
 </body>
 </html>
