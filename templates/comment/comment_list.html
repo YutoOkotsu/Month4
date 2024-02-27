@@ -1,0 +1,6 @@
+{% include 'shoe/header.html' %}
+{% for i in comments %}
+<p>{{i.text}}</p>
+<p>{{i.shoe_comment}}</p>
+<p>{{i.created_at}}</p>
+{% endfor %}
