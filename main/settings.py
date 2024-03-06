@@ -27,7 +27,8 @@ INSTALLED_APPS = [
     'blog',
     'shoe',
     'parser_app',
-    'users'
+    'users',
+    'cloth',
 ]
 
 MIDDLEWARE = [
